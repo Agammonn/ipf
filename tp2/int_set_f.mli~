@@ -1,0 +1,17 @@
+(** Ensembles d'entiers
+
+Ce module dÃ©fini une structure d'ensembles d'entiers. 
+
+ *)
+
+
+exception EmptySet
+(** exception levÃ©e si l'on tente de deconstruire un ensemble vide *)
+module type IntSet =
+  sig 
+  end 
+
+
+module IntSetList : IntSet
+module IntSetAbr : IntSet
+module IntSetIntervals : IntSet

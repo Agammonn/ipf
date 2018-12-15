@@ -1,0 +1,37 @@
+### Starting build.
+# Target: testGraph.ml.depends, tags: { extension:ml, file:testGraph.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules testGraph.ml > testGraph.ml.depends # cached
+# Target: graph.mli.depends, tags: { extension:mli, file:graph.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules graph.mli > graph.mli.depends # cached
+# Target: ensembles.mli.depends, tags: { extension:mli, file:ensembles.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules ensembles.mli > ensembles.mli.depends # cached
+# Target: ensembles.cmi, tags: { byte, compile, extension:mli, file:ensembles.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc -c -o ensembles.cmi ensembles.mli # cached
+# Target: pmap.mli.depends, tags: { extension:mli, file:pmap.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules pmap.mli > pmap.mli.depends # cached
+# Target: pmap.cmi, tags: { byte, compile, extension:mli, file:pmap.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc -c -o pmap.cmi pmap.mli # cached
+# Target: graph.cmi, tags: { byte, compile, extension:mli, file:graph.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc -c -o graph.cmi graph.mli # cached
+# Target: testGraph.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:testGraph.cmo, file:testGraph.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o testGraph.cmo testGraph.ml # cached
+# Target: graph.ml.depends, tags: { extension:ml, file:graph.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules graph.ml > graph.ml.depends # cached
+# Target: graph.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:graph.cmo, file:graph.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o graph.cmo graph.ml # cached
+# Target: ensembles.ml.depends, tags: { extension:ml, file:ensembles.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules ensembles.ml > ensembles.ml.depends # cached
+# Target: ensembles.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:ensembles.cmo, file:ensembles.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o ensembles.cmo ensembles.ml # cached
+# Target: pmap.ml.depends, tags: { extension:ml, file:pmap.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules pmap.ml > pmap.ml.depends # cached
+# Target: pmap.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:pmap.cmo, file:pmap.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o pmap.cmo pmap.ml
++ /usr/bin/ocamlc -c -o pmap.cmo pmap.ml
+File "pmap.ml", line 1:
+Error: The implementation pmap.ml does not match the interface pmap.cmi:
+       ...
+       At position module type S = <here>
+       The value `mem' is required but not provided
+Command exited with code 2.
+# Compilation unsuccessful.

@@ -1,0 +1,42 @@
+(** ensemble d'entier *)
+exception EmptySet;;
+type int_set = int list;;
+
+let empty = [];;
+
+let is_empty s = s=empty;;
+
+let rec mem a s = match s with
+    [] -> false
+   |t::q -> if t=a then true
+            else if t>a then false
+            else mem a q;;
+
+let rec add e s = match s with
+    []->[e]
+   |t::q -> if t = e then t::q
+            else if t>e then e::s
+            else t::(add e q);;
+
+
+let fold f s a = List.fold_left (fun acc  e -> f e acc) a s
+              
+              
+let get_min s= match s with
+    [] -> raise EmptySet
+   |t::q -> t
+
+let rec equal s1 s2 = match s1,s2 with
+    [], [] -> true
+   |t::q, a::b -> a = t && equal q b
+   |_ -> false;;
+
+let rec remove e s = match s with
+    []-> raise EmptySet
+   |t::q -> if t = e then q
+            else if t>e then s
+            else t::(remove e q);;
+
+let rec union s1 s2 = match s1 with
+  [] -> s2
+  |t::q -> union q (add t s2);;
